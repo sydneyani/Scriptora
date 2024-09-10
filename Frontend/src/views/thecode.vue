@@ -17,9 +17,9 @@
   >
     <span v-if="containsCode(message.text)" @mouseover="showApplyButton = true" @mouseleave="showApplyButton = false">
       <pre>{{ extractCode(message.text) }}</pre>
-      <button 
-  v-show="showApplyButton" 
-  @click="applyCode(extractCode(message.text))" 
+      <button
+  v-show="showApplyButton"
+  @click="applyCode(extractCode(message.text))"
   class="apply-code-btn">
   Apply to Code
 </button>
@@ -64,7 +64,7 @@ export default {
     this.editor = AceEditor.edit('editor');
     this.editor.setTheme('ace/theme/monokai');
     this.editor.session.setMode('ace/mode/javascript');
-    
+   
     // Load saved code from localStorage if it exists, or use a default message
     this.code = localStorage.getItem('code') || '// start coding here...';
     this.editor.setValue(this.code);
@@ -75,21 +75,21 @@ export default {
       // Save the current state of the code to localStorage on each change
       localStorage.setItem('code', this.code);
     });
-    
+   
   },
-  
+ 
   methods: {
     async sendQuery() {
   console.log('Send button clicked');
   if (!this.userQuery.trim()) return;
-  
+ 
   // Add the user's query to the chat
   this.aiChat.push({
     id: Date.now(),
     text: this.userQuery,
     sender: 'user',
   });
-  
+ 
   try {
     // Call the generateCode function with the user's query
     const codeResponse = await generateCode(this.userQuery);
@@ -109,7 +109,7 @@ export default {
       sender: 'ai',
     });
   }
-  
+ 
   // Clear the input field
   this.userQuery = '';
 },
@@ -181,7 +181,7 @@ scrollToBottom() {
       this.terminalOutput = '';
     }
   },
-      
+     
   beforeDestroy() {
     this.editor.destroy();
     this.editor.container.remove();
@@ -195,7 +195,7 @@ scrollToBottom() {
   flex-direction: column;
   justify-content: space-between; /* Aligns children (editor and buttons) on the main axis */
 }
-  #editor { 
+  #editor {
     height: 500px; /* Sets the height of the editor */
     width: 680px; /* Sets the width of the editor */
     flex-grow: 0; /* Prevents the editor from growing */
@@ -270,7 +270,7 @@ scrollToBottom() {
   height: 503px;
   position: fixed;
   right: -0.1vw; /* Use viewport width units instead of fixed pixels */
-  bottom: 20.5vh; /* Use viewport height units to adjust to different screen heights */
+  bottom: 30.5vh; /* Use viewport height units to adjust to different screen heights */
   background-color: #242424;
   border-radius: 8px;
   padding: 10px;
@@ -303,8 +303,8 @@ scrollToBottom() {
 @media (min-width: 1600px) {
   .ai-chat-container {
     right: 0vw; /* You might want to use a larger/smaller value here */
-    bottom: 38.5vh; /* You might want to use a larger/smaller value here */
-    width: 950px;
+    bottom: 57.5vh; /* You might want to use a larger/smaller value here */
+    width: 2550px;
     height: 499px;
   }
 }
@@ -405,7 +405,7 @@ scrollToBottom() {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for 3D effect */
   text-transform: uppercase; /* Capitalize button text for emphasis */
   font-size: 0.85em; /* Adjust font size as needed */
-  
+ 
 }
 
 .message:hover .apply-code-btn {
