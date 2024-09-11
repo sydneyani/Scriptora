@@ -224,7 +224,7 @@
   </div>
   <div class="gpt4-image">
     <!-- Replace 'path-to-your-image.jpg' with the actual path to your image -->
-    <img src="aipic.png" alt="GPT-4 AI Assistant">
+     <img :src="'aipic.png'" alt="GPT-4 AI Assistant">
   </div>
 </div>
 
