@@ -28,7 +28,7 @@ export default {
       });
       
       // Redirect to a new page after "login"
-      window.location.href = '/'; // Change this to your desired route
+      window.location.href = '/thecode'; // Change this to your desired route
     };
 
     return {
